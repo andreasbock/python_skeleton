@@ -23,3 +23,8 @@ def flake8(session):
 def tests(session):
     session.install("pytest", ".")
     session.run("pytest")
+
+@session(python="3.10", tags=["style"])
+def mypy(session):
+    session.install("mypy", ".")
+    session.run("mypy", "python_skeleton", "tests")
